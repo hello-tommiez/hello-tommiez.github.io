@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio — Tam Nguyen Hong</title>
+  <meta name="description" content="Products I've designed end to end, from AI-powered finance and gamified HR to fashion e-commerce.">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body data-page="portfolio">
+  <div id="site-header"></div>
+
+  <main class="portfolio-content">
+    <div class="container">
+
+      <!-- Intro -->
+      <div class="portfolio-intro">
+        <h1 class="heading-1">Portfolio</h1>
+        <p class="body-xl text-supporting">Products I've designed end to end from AI-powered finance and gamified HR to fashion e-commerce.</p>
+        <p class="body-sm text-hint">Most projects here are personal rebuilds. Work shared with a company's permission is labelled with the company's name.</p>
+      </div>
+
+      <!-- Featured projects -->
+      <section class="portfolio-group" aria-labelledby="featured-title">
+        <div class="section-header">
+          <h2 class="heading-2" id="featured-title">Featured projects</h2>
+          <p class="body-lg">The three projects that best show how I think, design and ship.</p>
+        </div>
+        <div class="project-grid">
+          <article class="card card--elevated">
+            <div class="card__media"><img src="/assets/img/projects/perfima-cover.jpg" alt="Perfima app cover" loading="lazy"></div>
+            <div class="card__body">
+              <p class="card__eyebrow">Fintech · AI</p>
+              <h3 class="card__title"><a class="card__link" href="/portfolio/perfima">Perfima</a></h3>
+              <p class="card__desc">Personal finance management powered by AI.</p>
+            </div>
+          </article>
+          <!-- Talos, Axis: thêm card cùng cấu trúc khi sẵn sàng -->
+        </div>
+      </section>
+
+      <!-- TM's System banner -->
+      <section class="tms-banner" aria-labelledby="tms-title">
+        <div class="tms-banner__copy">
+          <span class="badge"><span class="badge__dot"></span>AI Legible Design System</span>
+          <h2 class="display-md" id="tms-title">TM's System</h2>
+          <p class="body-lg">The design system behind every project on this page built so designers and AI agents can both read it. Tokens are layered Primitives → Brand → Semantic and named by usage, and every component is documented in English and Vietnamese.</p>
+          <a class="btn btn--inverse btn--lg" href="/portfolio/tms-system">Explore the system</a>
+        </div>
+
+        <div class="tms-art" aria-hidden="true">
+          <div class="tms-art__glow"></div>
+
+          <div class="tms-plane-wrap tms-plane-wrap--1">
+            <div class="tms-plane tms-plane--primitives">
+              <span class="tms-swatch"></span><span class="tms-swatch"></span><span class="tms-swatch"></span><span class="tms-swatch"></span><span class="tms-swatch"></span>
+            </div>
+          </div>
+          <div class="tms-plane-wrap tms-plane-wrap--2">
+            <div class="tms-plane">
+              <span class="tms-plane__circle"></span>
+              <span class="display-md tms-plane__aa">Aa</span>
+            </div>
+          </div>
+          <div class="tms-plane-wrap tms-plane-wrap--3">
+            <div class="tms-plane">
+              <div class="tms-plane__components">
+                <span class="btn btn--primary">Explore</span>
+                <span class="badge badge--brand"><span class="badge__dot"></span>Brand</span>
+                <span class="tag">semantic</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tms-label tms-label--3"><strong>03  SEMANTIC</strong><span>background/interactive/default</span></div>
+          <div class="tms-label tms-label--2"><strong>02  BRAND</strong><span>color/primary/500</span></div>
+          <div class="tms-label tms-label--1"><strong>01  PRIMITIVES</strong><span>color/yellow/500</span></div>
+
+          <div class="tms-chip"><span>✦</span>AI agent reads the same names</div>
+        </div>
+      </section>
+
+      <!-- More projects -->
+      <section class="portfolio-group" aria-labelledby="more-title">
+        <div class="section-header">
+          <h2 class="heading-2" id="more-title">More projects</h2>
+          <p class="body-lg">Other personal projects and work I'm able to share.</p>
+        </div>
+        <div class="project-grid">
+          <article class="card card--outline">
+            <div class="card__media"><img src="/assets/img/projects/qvid-cover.jpg" alt="QVID cover" loading="lazy"></div>
+            <div class="card__body">
+              <p class="card__eyebrow">AI · Video · OceanLabs</p>
+              <h3 class="card__title"><a class="card__link" href="/portfolio/qvid">QVID</a></h3>
+              <p class="card__desc">AI video generator. I designed its first design system.</p>
+            </div>
+          </article>
+          <article class="card card--outline">
+            <div class="card__media"><img src="/assets/img/projects/hrm-cover.jpg" alt="HRM app cover" loading="lazy"></div>
+            <div class="card__body">
+              <p class="card__eyebrow">HRTech · Designveloper</p>
+              <h3 class="card__title"><a class="card__link" href="/portfolio/hrm">HRM</a></h3>
+              <p class="card__desc">A suite of modules that helps users manage human resources.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Graphic and social -->
+      <section class="portfolio-group" aria-labelledby="graphic-title">
+        <div class="section-header">
+          <h2 class="heading-2" id="graphic-title">Graphic and social</h2>
+          <p class="body-lg">Social posts, key visuals and campaign graphics I've made. Work shared with a brand's permission is labelled with the brand's name.</p>
+        </div>
+
+        <div class="gallery" data-gallery data-limit="8">
+          <div class="tag-list" role="group" aria-label="Filter graphics">
+            <button class="tag" type="button" data-filter="all" aria-pressed="true">All</button>
+            <button class="tag" type="button" data-filter="social" aria-pressed="false">Social post</button>
+            <button class="tag" type="button" data-filter="key-visual" aria-pressed="false">Key visual</button>
+            <button class="tag" type="button" data-filter="event" aria-pressed="false">Event</button>
+            <button class="tag" type="button" data-filter="carousel" aria-pressed="false">Carousel</button>
+          </div>
+
+          <!--
+            THÊM ẢNH: copy 1 khối <button class="graphic-tile">.
+            - data-category: social | key-visual | event | carousel
+            - class: graphic-tile--square (1:1) hoặc graphic-tile--portrait (4:5)
+            - data-images: 1 ảnh, hoặc nhiều ảnh cách nhau dấu phẩy (carousel)
+            - aria-label: "<Tên>, <định dạng>"
+          -->
+          <div class="masonry">
+            <button class="graphic-tile graphic-tile--portrait" type="button" data-category="carousel"
+              data-images="/assets/img/graphics/carousel-01-1.jpg, /assets/img/graphics/carousel-01-2.jpg, /assets/img/graphics/carousel-01-3.jpg, /assets/img/graphics/carousel-01-4.jpg, /assets/img/graphics/carousel-01-5.jpg"
+              aria-label="Campaign name, Carousel · 5">
+              <img src="/assets/img/graphics/carousel-01-1.jpg" alt="" loading="lazy">
+              <span class="graphic-tile__overlay"></span>
+              <span class="badge badge--sm">Carousel · 5</span>
+              <span class="graphic-tile__caption"><span class="body-md emphasis">Campaign name</span><span class="body-sm">Carousel · 2026</span></span>
+            </button>
+
+            <button class="graphic-tile graphic-tile--square" type="button" data-category="social"
+              data-images="/assets/img/graphics/social-01.jpg" aria-label="Post name, Social post">
+              <img src="/assets/img/graphics/social-01.jpg" alt="" loading="lazy">
+              <span class="graphic-tile__overlay"></span>
+              <span class="badge badge--sm">Social post</span>
+              <span class="graphic-tile__caption"><span class="body-md emphasis">Post name</span><span class="body-sm">Social post · 2026</span></span>
+            </button>
+
+            <button class="graphic-tile graphic-tile--square" type="button" data-category="social"
+              data-images="/assets/img/graphics/social-02.jpg" aria-label="Post name, Social post">
+              <img src="/assets/img/graphics/social-02.jpg" alt="" loading="lazy">
+              <span class="graphic-tile__overlay"></span>
+              <span class="badge badge--sm">Social post</span>
+              <span class="graphic-tile__caption"><span class="body-md emphasis">Post name</span><span class="body-sm">Social post · 2026</span></span>
+            </button>
+
+            <button class="graphic-tile graphic-tile--portrait" type="button" data-category="key-visual"
+              data-images="/assets/img/graphics/kv-01.jpg" aria-label="Campaign name, Key visual">
+              <img src="/assets/img/graphics/kv-01.jpg" alt="" loading="lazy">
+              <span class="graphic-tile__overlay"></span>
+              <span class="badge badge--sm">Key visual</span>
+              <span class="graphic-tile__caption"><span class="body-md emphasis">Campaign name</span><span class="body-sm">Key visual · 2026</span></span>
+            </button>
+
+            <button class="graphic-tile graphic-tile--portrait" type="button" data-category="key-visual"
+              data-images="/assets/img/graphics/kv-02.jpg" aria-label="Campaign name, Key visual">
+              <img src="/assets/img/graphics/kv-02.jpg" alt="" loading="lazy">
+              <span class="graphic-tile__overlay"></span>
+              <span class="badge badge--sm">Key visual</span>
+              <span class="graphic-tile__caption"><span class="body-md emphasis">Campaign name</span><span class="body-sm">Key visual · 2026</span></span>
+            </button>
+
+            <button class="graphic-tile graphic-tile--square" type="button" data-category="event"
+              data-images="/assets/img/graphics/event-01.jpg" aria-label="Event name, Event">
+              <img src="/assets/img/graphics/event-01.jpg" alt="" loading="lazy">
+              <span class="graphic-tile__overlay"></span>
+              <span class="badge badge--sm">Event</span>
+              <span class="graphic-tile__caption"><span class="body-md emphasis">Event name</span><span class="body-sm">Event · 2026</span></span>
+            </button>
+
+            <button class="graphic-tile graphic-tile--square" type="button" data-category="social"
+              data-images="/assets/img/graphics/social-03.jpg" aria-label="Post name, Social post">
+              <img src="/assets/img/graphics/social-03.jpg" alt="" loading="lazy">
+              <span class="graphic-tile__overlay"></span>
+              <span class="badge badge--sm">Social post</span>
+              <span class="graphic-tile__caption"><span class="body-md emphasis">Post name</span><span class="body-sm">Social post · 2026</span></span>
+            </button>
+
+            <button class="graphic-tile graphic-tile--portrait" type="button" data-category="carousel"
+              data-images="/assets/img/graphics/carousel-02-1.jpg, /assets/img/graphics/carousel-02-2.jpg, /assets/img/graphics/carousel-02-3.jpg"
+              aria-label="Campaign name, Carousel · 3">
+              <img src="/assets/img/graphics/carousel-02-1.jpg" alt="" loading="lazy">
+              <span class="graphic-tile__overlay"></span>
+              <span class="badge badge--sm">Carousel · 3</span>
+              <span class="graphic-tile__caption"><span class="body-md emphasis">Campaign name</span><span class="body-sm">Carousel · 2026</span></span>
+            </button>
+          </div>
+
+          <div class="gallery__actions">
+            <button class="btn btn--outline-neutral" type="button" data-show-all>View all graphics</button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Lightbox -->
+  <dialog class="lightbox" id="lightbox" aria-label="Graphic preview">
+    <div class="lightbox__stage"><img src="" alt=""></div>
+    <div class="lightbox__bar">
+      <span class="body-sm" data-caption></span>
+      <span class="body-sm" data-counter></span>
+      <div class="btn-row">
+        <button class="btn btn--ghost" type="button" data-nav="prev" aria-label="Previous slide">‹</button>
+        <button class="btn btn--ghost" type="button" data-nav="next" aria-label="Next slide">›</button>
+        <button class="btn btn--ghost" type="button" data-close aria-label="Close">✕</button>
+      </div>
+    </div>
+  </dialog>
+
+  <div id="site-footer"></div>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

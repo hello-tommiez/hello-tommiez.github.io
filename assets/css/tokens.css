@@ -1,0 +1,104 @@
+/* =========================================================
+   TM's System — design tokens (Light)
+   Lấy từ biến Figma của file "TM · Resume - Portfolio".
+   Đổi giá trị ở đây là cả site đổi theo.
+   ========================================================= */
+:root {
+  /* Font */
+  --font-family-heading: "Bricolage Grotesque", "Inter", system-ui, sans-serif;
+  --font-family-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-weight-body: 400;
+  --font-weight-emphasis: 600;
+
+  /* Font size */
+  --font-size-display-md: 64px;
+  --font-size-heading-1: 32px;
+  --font-size-heading-2: 24px;
+  --font-size-heading-3: 20px;
+  --font-size-heading-4: 18px;
+  --font-size-body-xl: 18px;
+  --font-size-body-lg: 16px;
+  --font-size-body-md: 14px;
+  --font-size-body-sm: 12px;
+  --font-size-body-xs: 10px;
+  --letter-spacing-display-md: -1.5px;
+  --letter-spacing-heading-1: -1px;
+
+  /* Background */
+  --background-canvas: #ffffff;
+  --background-surface: #ffffff;
+  --background-raised: #ffffff;
+  --background-section: #f8f8f8;
+  --background-neutral: #e6e6e6;
+  --background-inverse: #2f2f2f;
+  --background-overlay: rgba(26, 26, 26, 0.48);
+  --background-success: #ddffe1;
+  --background-brand-subtle: #fef6d3;
+  --background-interactive-default: #fdcb47;
+  --background-interactive-hover: #e2b038;
+  --background-interactive-active: #be8c27;
+
+  /* Text */
+  --text-default: #2f2f2f;
+  --text-supporting: #464646;
+  --text-hint: #5e5e5e;
+  --text-inverse: #ffffff;
+  --text-on-interactive: #1a1a1a;
+  --text-interactive: #805610;
+  --text-brand: #805610;
+  --text-success: #026b5b;
+  --text-link-hover: #684000;
+
+  /* Icon */
+  --icon-success: #026b5b;
+  --icon-brand: #805610;
+  --icon-supporting: #464646;
+
+  /* Border */
+  --border-divider: #e6e6e6;
+  --border-container: #c9c9c9;
+  --border-input: #929292;
+  --border-interactive: #9a6d19;
+  --border-width-default: 1px;
+
+  /* Radius */
+  --radius-indicator: 4px;
+  --radius-control: 8px;
+  --radius-card: 12px;
+  --radius-banner: 24px;
+  --radius-pill: 9999px;
+
+  /* Spacing */
+  --spacing-icon-gap: 4px;
+  --spacing-control-gap: 8px;
+  --spacing-paragraph: 12px;
+  --spacing-card-padding: 16px;
+  --spacing-button-padding-x-md: 16px;
+  --spacing-button-padding-x-lg: 24px;
+  --spacing-group-gap: 32px;
+  --spacing-section-gap: 64px;
+
+  /* Layout */
+  --page-max: 1200px;
+  --page-margin: 120px;
+
+  /* Shadow */
+  --shadow-color-key: rgba(26, 26, 26, 0.24);
+  --shadow-color-ambient: rgba(26, 26, 26, 0.16);
+  --shadow-card: 0 1px 3px 0 var(--shadow-color-key), 0 1px 2px 0 var(--shadow-color-ambient);
+  --shadow-plane: 0 6px 12px 0 var(--shadow-color-key), 0 24px 48px 0 var(--shadow-color-ambient);
+}
+
+@media (max-width: 1024px) {
+  :root { --page-margin: 40px; }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --page-margin: 20px;
+    --font-size-display-md: 44px;
+    --font-size-heading-1: 28px;
+    --font-size-heading-2: 22px;
+    --spacing-section-gap: 48px;
+  }
+}
