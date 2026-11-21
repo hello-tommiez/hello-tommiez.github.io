@@ -34,7 +34,7 @@ function renderHeader() {
   <header class="site-header">
     <div class="container site-header__inner">
       <a class="site-logo" href="/" aria-label="tm studio — About">
-        <img src="/assets/img/logo-tmstudio.svg" alt="tm studio" width="68" height="48">
+        <img src="/assets/img/logo.svg" alt="tm studio" width="68" height="48">
       </a>
       <nav class="site-nav" id="site-nav" aria-label="Main">
         ${links}
