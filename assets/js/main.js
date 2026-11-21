@@ -7,7 +7,8 @@
 
 const SITE = {
   email: "hello.tommiez@gmail.com",
-  linkedin: "https://www.linkedin.com/in/hogggtamm/", // TODO: thay link LinkedIn thật
+  gmail: "https://mail.google.com/mail/?view=cm&fs=1&to=hello.tommiez@gmail.com",
+  linkedin: "https://www.linkedin.com/in/hogggtamm/",
   cv: "https://drive.google.com/file/d/1eGDQ2d-rOMRSDDbNGnFFDOh0oFwHhLI8/view?usp=drive_link",
   nav: [
     { key: "about", label: "About", href: "/" },
@@ -38,9 +39,9 @@ function renderHeader() {
       </a>
       <nav class="site-nav" id="site-nav" aria-label="Main">
         ${links}
-        <a class="btn btn--primary nav-cta" href="${SITE.cv}" download>Download CV</a>
+         <a class="btn btn--primary nav-cta" href="${SITE.cv}" target="_blank" rel="noopener">Download CV</a>
       </nav>
-      <a class="btn btn--primary header-cta" href="${SITE.cv}" download>Download CV</a>
+      <a class="btn btn--primary header-cta" href="${SITE.cv}" target="_blank" rel="noopener">Download CV</a>
       <button class="btn btn--ghost menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
@@ -65,7 +66,7 @@ function renderFooter() {
     <div class="container site-footer__inner">
       <p class="body-sm text-hint">© ${new Date().getFullYear()} tm studio. All rights reserved.</p>
       <div class="site-footer__links">
-        <a class="btn btn--link emphasis" href="mailto:${SITE.email}">Email</a>
+        <a class="btn btn--link emphasis" href="${SITE.gmail}" target="_blank" rel="noopener">Email</a>
         <a class="btn btn--link emphasis" href="${SITE.linkedin}" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
