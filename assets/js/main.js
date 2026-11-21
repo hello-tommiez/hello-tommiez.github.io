@@ -7,8 +7,8 @@
 
 const SITE = {
   email: "hello.tommiez@gmail.com",
-  linkedin: "https://www.linkedin.com/in/your-handle", // TODO: thay link LinkedIn thật
-  cv: "/cv.pdf",
+  linkedin: "https://www.linkedin.com/in/hogggtamm/", // TODO: thay link LinkedIn thật
+  cv: "https://drive.google.com/file/d/1eGDQ2d-rOMRSDDbNGnFFDOh0oFwHhLI8/view?usp=drive_link",
   nav: [
     { key: "about", label: "About", href: "/" },
     { key: "portfolio", label: "Portfolio", href: "/portfolio/" },
