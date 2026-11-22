@@ -84,7 +84,7 @@
 .p-step__desc { font-size: var(--font-size-body-sm); color: var(--text-supporting); }
 
 /* ---------- Brief & Challenge (bento) ---------- */
-.p-bento { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start; }
+.p-bento { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: stretch; }
 .p-brief {
   align-self: stretch;
   display: flex; flex-direction: column; justify-content: space-between; gap: var(--spacing-group-gap);
@@ -101,7 +101,7 @@
 
 .badge-row { display: flex; flex-wrap: wrap; gap: var(--spacing-control-gap); }
 
-.p-clips { display: flex; align-items: center; gap: var(--spacing-control-gap); width: 100%; }
+.p-clips { display: flex; align-items: center; gap: var(--spacing-control-gap); width: 100%; margin-top: auto; }
 .p-clip {
   flex: 1; min-width: 0;
   padding: var(--spacing-paragraph) var(--spacing-button-padding-x-md);
