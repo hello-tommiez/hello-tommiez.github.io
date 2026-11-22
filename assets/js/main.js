@@ -73,17 +73,106 @@ function renderFooter() {
   </footer>`;
 }
 
-/* ---------- Gallery ---------- */
-function initGallery() {
+/* ---------- Gallery "Graphic and social" ----------
+   Tự đọc ảnh trong assets/img/graphics/ qua GitHub API:
+   graphics/<nhóm>/<ảnh>             → 1 ô ảnh, mỗi nhóm = 1 filter
+   graphics/<nhóm>/<thư-mục>/<ảnh…>  → 1 ô carousel nhiều slide
+   Không có ảnh → cả section ẩn. */
+const GRAPHICS = {
+  repo: "hello-tommiez/hello-tommiez.github.io",
+  branch: "main",
+  root: "assets/img/graphics/",
+  cacheMinutes: 10, // lưu kết quả 10 phút để đỡ gọi API
+};
+const IMG_EXT = /\.(jpe?g|png|webp|gif|avif)$/i;
+
+// "02-summer-sale.jpg" → "Summer sale"
+function prettyName(name) {
+  const s = name.replace(IMG_EXT, "").replace(/^\d+[-_ ]*/, "").replace(/[-_]+/g, " ").trim();
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
+async function fetchGraphicPaths() {
+  const KEY = "tm-graphics";
+  try {
+    const c = JSON.parse(sessionStorage.getItem(KEY) || "null");
+    if (c && Date.now() - c.t < GRAPHICS.cacheMinutes * 60000) return c.paths;
+  } catch (e) {}
+  const res = await fetch(`https://api.github.com/repos/${GRAPHICS.repo}/git/trees/${GRAPHICS.branch}?recursive=1`);
+  if (!res.ok) throw new Error(`GitHub API ${res.status}`);
+  const { tree } = await res.json();
+  const paths = tree
+    .filter((n) => n.type === "blob" && n.path.startsWith(GRAPHICS.root) && IMG_EXT.test(n.path))
+    .map((n) => n.path)
+    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+  try { sessionStorage.setItem(KEY, JSON.stringify({ t: Date.now(), paths })); } catch (e) {}
+  return paths;
+}
+
+function groupGraphics(paths) {
+  const groups = new Map(); // "social" → Map("ten-anh" → item)
+  paths.forEach((path) => {
+    const parts = path.slice(GRAPHICS.root.length).split("/");
+    if (parts.length < 2) return; // ảnh nằm thẳng trong graphics/ → bỏ qua
+    const [group, name] = parts;  // name = tên ảnh, hoặc tên thư mục carousel
+    if (!groups.has(group)) groups.set(group, new Map());
+    const items = groups.get(group);
+    if (!items.has(name)) items.set(name, { group, title: prettyName(name), images: [] });
+    items.get(name).images.push("/" + encodeURI(path));
+  });
+  return groups;
+}
+
+async function initGallery() {
   const gallery = document.querySelector("[data-gallery]");
   if (!gallery) return;
+  const section = gallery.closest("section");
+  const filterBar = gallery.querySelector("[data-filters]");
+  const masonry = gallery.querySelector("[data-masonry]");
 
-  const tiles = [...gallery.querySelectorAll(".graphic-tile")];
-  const filters = [...gallery.querySelectorAll("[data-filter]")];
+  let groups;
+  try { groups = groupGraphics(await fetchGraphicPaths()); }
+  catch (e) { console.warn("Graphics:", e); return; } // lỗi → section vẫn ẩn
+  if (!groups.size) return;                             // không có ảnh → ẩn
+
+  const keys = [...groups.keys()];
+  const multi = keys.length > 1;
+
+  filterBar.innerHTML =
+    (multi ? `<button class="tag" type="button" data-filter="all">All</button>` : "") +
+    keys.map((k) => `<button class="tag" type="button" data-filter="${k}">${prettyName(k)}</button>`).join("");
+
+  masonry.innerHTML = keys
+    .flatMap((k) => [...groups.get(k).values()])
+    .map((item) => {
+      const label = prettyName(item.group);
+      const badge = item.images.length > 1 ? `${label} · ${item.images.length}` : label;
+      return `
+      <button class="graphic-tile graphic-tile--portrait" type="button" data-category="${item.group}"
+        data-images="${item.images.join(", ")}" aria-label="${item.title}, ${badge}">
+        <img src="${item.images[0]}" alt="${item.title}" loading="lazy">
+        <span class="graphic-tile__overlay"></span>
+        <span class="badge badge--sm">${badge}</span>
+        <span class="graphic-tile__caption"><span class="body-md emphasis">${item.title}</span><span class="body-sm">${badge}</span></span>
+      </button>`;
+    })
+    .join("");
+
+  // Ô lấy đúng tỉ lệ ảnh thật (vuông, 4:5, 9:16…)
+  masonry.querySelectorAll("img").forEach((img) => {
+    const fit = () => { img.parentElement.style.aspectRatio = `${img.naturalWidth} / ${img.naturalHeight}`; };
+    img.complete && img.naturalWidth ? fit() : img.addEventListener("load", fit, { once: true });
+  });
+
+  section.hidden = false;
+
+  /* Lọc + View all */
+  const tiles = [...masonry.querySelectorAll(".graphic-tile")];
+  const filters = [...filterBar.querySelectorAll("[data-filter]")];
   const moreBtn = gallery.querySelector("[data-show-all]");
   const LIMIT = Number(gallery.dataset.limit || 8);
   let showAll = false;
-  let active = "all";
+  let active = multi ? "all" : keys[0];
 
   function update() {
     let shown = 0;
@@ -95,19 +184,14 @@ function initGallery() {
     });
     const total = tiles.filter((t) => active === "all" || t.dataset.category === active).length;
     if (moreBtn) moreBtn.hidden = showAll || total <= LIMIT;
+    filters.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.filter === active)));
   }
 
-  filters.forEach((btn) =>
-    btn.addEventListener("click", () => {
-      active = btn.dataset.filter;
-      filters.forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
-      update();
-    })
-  );
+  filters.forEach((btn) => btn.addEventListener("click", () => { active = btn.dataset.filter; update(); }));
   moreBtn?.addEventListener("click", () => { showAll = true; update(); });
   update();
 
-  /* Lightbox — mỗi tile có data-images="a.jpg, b.jpg" (carousel nhiều ảnh) */
+  /* Lightbox */
   const box = document.getElementById("lightbox");
   if (!box) return;
   const img = box.querySelector("img");
@@ -142,7 +226,3 @@ function initGallery() {
     if (e.key === "ArrowRight") show(index + 1);
   });
 }
-
-renderHeader();
-renderFooter();
-initGallery();
