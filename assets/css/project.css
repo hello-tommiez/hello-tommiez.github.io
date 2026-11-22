@@ -140,13 +140,17 @@
 
 /* ---------- Outcome ---------- */
 .p-outcome {
-  display: flex; align-items: center; gap: var(--spacing-section-gap);
-  padding: var(--spacing-section-gap); border-radius: var(--radius-sheet);
+  display: flex; align-items: flex-start;
+  padding-top: var(--spacing-section-gap); overflow: hidden;
+  border-radius: var(--radius-sheet);
   background: var(--background-success-strong); color: var(--text-on-brand);
 }
-.p-outcome__text { flex: 0 0 360px; display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
+.p-outcome__text {
+  flex: 0 0 50%; display: flex; flex-direction: column; align-items: flex-start; gap: 16px;
+  padding: 0 var(--spacing-section-gap) var(--spacing-section-gap);
+}
 .p-outcome__text .p-statement { color: var(--text-on-brand); }
-.p-outcome__shot { flex: 1; min-width: 0; }
+.p-outcome__shot { flex: 1; min-width: 0; align-self: flex-end; }
 
 /* ---------- Next project ---------- */
 .next-project { padding: 80px 0; background: var(--background-section); }
