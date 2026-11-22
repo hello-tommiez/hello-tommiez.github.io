@@ -226,3 +226,6 @@ async function initGallery() {
     if (e.key === "ArrowRight") show(index + 1);
   });
 }
+renderHeader();
+renderFooter();
+initGallery();
