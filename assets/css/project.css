@@ -14,9 +14,6 @@
   --border-success: #048665;
   --text-on-brand: #ffffff;
   --radius-sheet: 24px;
-  --shadow-shot: 0 20px 30px -6px var(--shadow-color-key), 0 8px 12px -8px var(--shadow-color-ambient);
-  --shadow-hero: 0 34px 52px -10px var(--shadow-color-key), 0 14px 20px -14px var(--shadow-color-ambient);
-  --shadow-popover: 0 10px 15px -3px var(--shadow-color-key), 0 4px 6px -4px var(--shadow-color-ambient);
 }
 @media (max-width: 640px) {
   :root {
@@ -66,16 +63,11 @@
 .project-facts dd { margin: 0; font-size: var(--font-size-body-md); font-weight: var(--font-weight-emphasis); }
 
 .p-hero__banner {
-  width: 100%; height: 512px; padding: 48px 48px 0; overflow: hidden;
+  width: 100%; padding: 48px 48px 0; overflow: hidden;
   border-radius: var(--radius-sheet);
   background: var(--background-success);
 }
-.p-hero__banner picture, .p-hero__banner img { display: block; width: 100%; }
-.p-hero__banner img {
-  aspect-ratio: 1104 / 690; object-fit: cover; object-position: top;
-  border-radius: 32px; background: var(--background-section);
-  box-shadow: var(--shadow-hero);
-}
+.p-hero__banner picture, .p-hero__banner img { display: block; width: 100%; height: auto; }
 
 /* ---------- How it works ---------- */
 .p-steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin: 0; padding: 0; list-style: none; }
@@ -131,33 +123,20 @@
 .p-tile {
   margin: 0;
   display: flex; flex-direction: column; align-items: flex-start; gap: 16px;
-  height: var(--tile-h, 380px); padding: 32px; overflow: hidden;
+  padding: 32px 0 0 32px; overflow: hidden;
   border-radius: var(--radius-sheet);
   background: var(--background-success);
 }
-.p-row--a .p-tile { --tile-h: 520px; }
-.p-row--b .p-tile { --tile-h: 320px; --shot-w: 141%; }
-.p-row--c .p-tile { --tile-h: 380px; --shot-w: 121%; }
 
-/* Ảnh màn hình 16:9, tràn ra mép phải + mép dưới của tile */
-.p-shot {
-  flex: none; width: var(--shot-w, 118%); aspect-ratio: 16 / 9;
-  overflow: hidden; border-radius: var(--radius-card);
-  background: var(--background-section);
-  box-shadow: var(--shadow-shot);
-}
-.p-shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+/* Ảnh mockup export từ Figma (đã gồm khung máy + phần bị cắt):
+   giữ nguyên tỉ lệ, sát mép phải và mép dưới của tile */
+.p-shot { margin-top: auto; width: 100%; }
+.p-shot img, .p-phone img, .p-outcome__shot img { display: block; width: 100%; height: auto; }
 
-/* Tile điện thoại */
-.p-tile--phone { align-items: center; }
+/* Tile điện thoại: ảnh ở giữa, sát mép dưới */
+.p-tile--phone { align-items: center; padding: 32px 32px 0; }
 .p-tile--phone .badge { align-self: flex-start; }
-.p-phone {
-  flex: none; width: min(280px, 100%); aspect-ratio: 1 / 2;
-  overflow: hidden; border-radius: 21px;
-  background: var(--background-section);
-  box-shadow: var(--shadow-shot);
-}
-.p-phone img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.p-phone { margin-top: auto; width: min(280px, 100%); }
 
 /* ---------- Outcome ---------- */
 .p-outcome {
@@ -167,13 +146,7 @@
 }
 .p-outcome__text { flex: 0 0 360px; display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
 .p-outcome__text .p-statement { color: var(--text-on-brand); }
-.p-outcome__shot {
-  flex: 1; min-width: 0; aspect-ratio: 648 / 365;
-  overflow: hidden; border-radius: var(--radius-card);
-  background: var(--background-section);
-  box-shadow: var(--shadow-popover);
-}
-.p-outcome__shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.p-outcome__shot { flex: 1; min-width: 0; }
 
 /* ---------- Next project ---------- */
 .next-project { padding: 80px 0; background: var(--background-section); }
@@ -209,11 +182,9 @@
   .p-bento { grid-template-columns: 1fr; }
   .p-row--a, .p-row--b, .p-row--c { grid-template-columns: 1fr; }
 
-  /* Tile ảnh: cao theo ảnh, cắt bớt phần đáy */
-  .p-tile { height: auto; padding: 24px 24px 0; }
-  .p-shot { margin-bottom: -8%; }
-  .p-tile--phone { height: 464px; }
-  .p-tile--phone .p-phone { width: 250px; }
+  .p-tile { padding: 24px 0 0 24px; }
+  .p-tile--phone { padding: 24px 24px 0; }
+  .p-tile--phone .p-phone { width: min(250px, 100%); }
 
   .p-outcome { flex-direction: column; align-items: stretch; gap: 24px; padding: 24px; }
   .p-outcome__text { flex: none; }
@@ -225,7 +196,6 @@
   .p-statement { font-size: var(--font-size-heading-2); letter-spacing: 0; line-height: 1.3; }
 
   .p-hero__banner { padding: 24px 24px 0; }
-  .p-hero__banner img { aspect-ratio: 1 / 2; border-radius: 21px; }
 
   .p-brief, .p-challenge { padding: 24px; }
   .p-brief { gap: 16px; }
