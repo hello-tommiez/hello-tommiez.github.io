@@ -113,99 +113,18 @@
         </div>
       </section>
 
-      <!-- Graphic and social -->
-      <section class="portfolio-group" aria-labelledby="graphic-title">
+      <!-- Graphic and social: tự hiện khi assets/img/graphics/ có ảnh (main.js → initGallery) -->
+      <section class="portfolio-group" id="graphics" aria-labelledby="graphic-title" hidden>
         <div class="section-header">
           <h2 class="heading-2" id="graphic-title">Graphic and social</h2>
           <p class="body-lg">Social posts, key visuals and campaign graphics I've made. Work shared with a brand's permission is labelled with the brand's name.</p>
         </div>
 
         <div class="gallery" data-gallery data-limit="8">
-          <div class="tag-list" role="group" aria-label="Filter graphics">
-            <button class="tag" type="button" data-filter="all" aria-pressed="true">All</button>
-            <button class="tag" type="button" data-filter="social" aria-pressed="false">Social post</button>
-            <button class="tag" type="button" data-filter="key-visual" aria-pressed="false">Key visual</button>
-            <button class="tag" type="button" data-filter="event" aria-pressed="false">Event</button>
-            <button class="tag" type="button" data-filter="carousel" aria-pressed="false">Carousel</button>
-          </div>
-
-          <!--
-            THÊM ẢNH: copy 1 khối <button class="graphic-tile">.
-            - data-category: social | key-visual | event | carousel
-            - class: graphic-tile--square (1:1) hoặc graphic-tile--portrait (4:5)
-            - data-images: 1 ảnh, hoặc nhiều ảnh cách nhau dấu phẩy (carousel)
-            - aria-label: "<Tên>, <định dạng>"
-          -->
-          <div class="masonry">
-            <button class="graphic-tile graphic-tile--portrait" type="button" data-category="carousel"
-              data-images="/assets/img/graphics/carousel-01-1.jpg, /assets/img/graphics/carousel-01-2.jpg, /assets/img/graphics/carousel-01-3.jpg, /assets/img/graphics/carousel-01-4.jpg, /assets/img/graphics/carousel-01-5.jpg"
-              aria-label="Campaign name, Carousel · 5">
-              <img src="/assets/img/graphics/carousel-01-1.jpg" alt="" loading="lazy">
-              <span class="graphic-tile__overlay"></span>
-              <span class="badge badge--sm">Carousel · 5</span>
-              <span class="graphic-tile__caption"><span class="body-md emphasis">Campaign name</span><span class="body-sm">Carousel · 2026</span></span>
-            </button>
-
-            <button class="graphic-tile graphic-tile--square" type="button" data-category="social"
-              data-images="/assets/img/graphics/social-01.jpg" aria-label="Post name, Social post">
-              <img src="/assets/img/graphics/social-01.jpg" alt="" loading="lazy">
-              <span class="graphic-tile__overlay"></span>
-              <span class="badge badge--sm">Social post</span>
-              <span class="graphic-tile__caption"><span class="body-md emphasis">Post name</span><span class="body-sm">Social post · 2026</span></span>
-            </button>
-
-            <button class="graphic-tile graphic-tile--square" type="button" data-category="social"
-              data-images="/assets/img/graphics/social-02.jpg" aria-label="Post name, Social post">
-              <img src="/assets/img/graphics/social-02.jpg" alt="" loading="lazy">
-              <span class="graphic-tile__overlay"></span>
-              <span class="badge badge--sm">Social post</span>
-              <span class="graphic-tile__caption"><span class="body-md emphasis">Post name</span><span class="body-sm">Social post · 2026</span></span>
-            </button>
-
-            <button class="graphic-tile graphic-tile--portrait" type="button" data-category="key-visual"
-              data-images="/assets/img/graphics/kv-01.jpg" aria-label="Campaign name, Key visual">
-              <img src="/assets/img/graphics/kv-01.jpg" alt="" loading="lazy">
-              <span class="graphic-tile__overlay"></span>
-              <span class="badge badge--sm">Key visual</span>
-              <span class="graphic-tile__caption"><span class="body-md emphasis">Campaign name</span><span class="body-sm">Key visual · 2026</span></span>
-            </button>
-
-            <button class="graphic-tile graphic-tile--portrait" type="button" data-category="key-visual"
-              data-images="/assets/img/graphics/kv-02.jpg" aria-label="Campaign name, Key visual">
-              <img src="/assets/img/graphics/kv-02.jpg" alt="" loading="lazy">
-              <span class="graphic-tile__overlay"></span>
-              <span class="badge badge--sm">Key visual</span>
-              <span class="graphic-tile__caption"><span class="body-md emphasis">Campaign name</span><span class="body-sm">Key visual · 2026</span></span>
-            </button>
-
-            <button class="graphic-tile graphic-tile--square" type="button" data-category="event"
-              data-images="/assets/img/graphics/event-01.jpg" aria-label="Event name, Event">
-              <img src="/assets/img/graphics/event-01.jpg" alt="" loading="lazy">
-              <span class="graphic-tile__overlay"></span>
-              <span class="badge badge--sm">Event</span>
-              <span class="graphic-tile__caption"><span class="body-md emphasis">Event name</span><span class="body-sm">Event · 2026</span></span>
-            </button>
-
-            <button class="graphic-tile graphic-tile--square" type="button" data-category="social"
-              data-images="/assets/img/graphics/social-03.jpg" aria-label="Post name, Social post">
-              <img src="/assets/img/graphics/social-03.jpg" alt="" loading="lazy">
-              <span class="graphic-tile__overlay"></span>
-              <span class="badge badge--sm">Social post</span>
-              <span class="graphic-tile__caption"><span class="body-md emphasis">Post name</span><span class="body-sm">Social post · 2026</span></span>
-            </button>
-
-            <button class="graphic-tile graphic-tile--portrait" type="button" data-category="carousel"
-              data-images="/assets/img/graphics/carousel-02-1.jpg, /assets/img/graphics/carousel-02-2.jpg, /assets/img/graphics/carousel-02-3.jpg"
-              aria-label="Campaign name, Carousel · 3">
-              <img src="/assets/img/graphics/carousel-02-1.jpg" alt="" loading="lazy">
-              <span class="graphic-tile__overlay"></span>
-              <span class="badge badge--sm">Carousel · 3</span>
-              <span class="graphic-tile__caption"><span class="body-md emphasis">Campaign name</span><span class="body-sm">Carousel · 2026</span></span>
-            </button>
-          </div>
-
+          <div class="tag-list" role="group" aria-label="Filter graphics" data-filters></div>
+          <div class="masonry" data-masonry></div>
           <div class="gallery__actions">
-            <button class="btn btn--outline-neutral" type="button" data-show-all>View all graphics</button>
+            <button class="btn btn--outline-neutral" type="button" data-show-all hidden>View all graphics</button>
           </div>
         </div>
       </section>
