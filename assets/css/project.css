@@ -208,3 +208,167 @@
 
   .next-project { padding: 48px 0; }
 }
+
+/* =========================================================
+   Perfima — chỉ dùng cho /portfolio/perfima
+   Load sau project.css. Layout theo Figma "Portfolio · Perfima" (node 149:15246).
+   Màu tím Perfima chỉ áp trong <main class="pf">, phần còn lại của site giữ vàng TM.
+   ========================================================= */
+
+/* ---------- Token Perfima ---------- */
+.pf {
+  --pf-brand: #7c59f1;
+  --pf-brand-subtle: #fcf3ff;
+  --pf-text-brand: #6043d1;
+  --pf-warning: #fff5dd;
+  --pf-text-warning: #a63910;
+  --pf-tile-radius: 24px;
+  --pf-tile-padding: 32px;
+
+  /* Badge brand (badge--brand) chuyển sang tím trong trang này */
+  --background-brand-subtle: var(--pf-brand-subtle);
+  --text-brand: var(--pf-text-brand);
+}
+
+/* ---------- Hero cover (ảnh export từ Figma, đã gồm nền + bo góc) ---------- */
+.pf .pf-cover { padding: 0; border-radius: 0; background: none; }
+
+/* ---------- Ghi đè màu xanh của template QVID ---------- */
+.pf .p-step--done { border-color: var(--pf-brand); background: var(--pf-brand-subtle); }
+.pf .p-clip { background: var(--pf-brand); }
+.pf .p-outcome { background: var(--pf-brand); }
+
+/* ---------- Tile chung ---------- */
+.pf-tile {
+  margin: 0;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 16px;
+  padding: var(--pf-tile-padding);
+  border-radius: var(--pf-tile-radius);
+  overflow: hidden;
+}
+.pf-tile--brand { background: var(--pf-brand-subtle); }
+.pf-tile--section { background: var(--background-section); }
+
+/* ---------- Research: số liệu ---------- */
+.pf-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.pf-stat {
+  display: flex; flex-direction: column; gap: 8px;
+  padding: var(--pf-tile-padding);
+  border-radius: var(--pf-tile-radius);
+  background: var(--pf-brand-subtle);
+}
+.pf-stat__num {
+  font-family: var(--font-family-heading); font-weight: 600;
+  font-variation-settings: "opsz" 14, "wdth" 100;
+  font-size: var(--font-size-display-md); letter-spacing: var(--letter-spacing-display-md);
+  line-height: 1.2; white-space: nowrap;
+  color: var(--pf-text-brand);
+}
+.pf-stat__copy { display: flex; flex-direction: column; gap: 8px; }
+.pf-stat__src { font-size: var(--font-size-body-sm); color: var(--text-hint); }
+
+/* ---------- Research: persona ---------- */
+.pf-tile--section > .badge { margin-bottom: 4px; }
+.pf-personas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; width: 100%; flex: 1; }
+.pf-persona {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 12px;
+  min-height: 230px; padding: 20px;
+  border: 1px solid var(--border-container); border-radius: 16px;
+  background: var(--background-surface);
+}
+.pf-persona__who { display: flex; align-items: center; gap: 12px; }
+.pf-persona__who > div { display: flex; flex-direction: column; gap: 2px; }
+.pf-persona__avatar {
+  flex: none; display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; border-radius: var(--radius-pill);
+  background: var(--pf-brand); color: #fff;
+  font-weight: var(--font-weight-emphasis);
+}
+.pf-persona__quote { color: var(--text-supporting); }
+.pf-persona .badge { margin-top: auto; }
+
+/* ---------- Research: How might we ---------- */
+.pf-hmw { background: var(--pf-brand); color: #fff; }
+.pf-hmw .heading-2 { color: #fff; }
+.pf-hmw__note { margin-top: auto; }
+
+/* ---------- Research: barrier → pillar ---------- */
+.pf-badge--warning { background: var(--pf-warning); color: var(--pf-text-warning); }
+.pf-pairs { display: flex; flex-direction: column; gap: 16px; width: 100%; }
+.pf-pairs li { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 12px; }
+.pf-barrier, .pf-pillar { padding: 14px 16px; border-radius: 12px; }
+.pf-barrier { border: 1px solid var(--border-container); background: var(--background-surface); }
+.pf-pillar { background: var(--pf-brand); color: #fff; font-weight: var(--font-weight-emphasis); }
+.pf-arrow {
+  font-family: var(--font-family-heading); font-weight: 600;
+  font-size: var(--font-size-heading-4); line-height: 1.3;
+  color: var(--pf-text-brand);
+}
+.pf-footnote { margin-top: auto; padding-top: 16px; font-size: var(--font-size-body-sm); color: var(--text-hint); }
+
+/* ---------- Research: sitemap ---------- */
+.pf-ia { width: 100%; padding: 40px; border-radius: var(--pf-tile-radius); background: var(--pf-warning); }
+.pf-ia img { width: 100%; height: auto; }
+
+/* ---------- Design: lưới màn hình ----------
+   Desktop 12 cột: Permi 8 + Transfer 4 / Onboarding, Wallets, Budgets 4-4-4 / Home, Trust 6-6 */
+.pf-screens { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 32px 16px; }
+.pf-screens > .pf-tile--single { grid-column: span 4; }
+.pf-screens__permi { grid-column: span 8; }
+.pf-screens__half { grid-column: span 6; }
+
+/* Ảnh điện thoại export từ Figma (đã gồm khung máy) */
+.pf-phones { display: flex; justify-content: center; align-items: flex-start; gap: 16px; width: 100%; }
+.pf-phones img { flex: 0 1 231px; min-width: 0; width: 231px; height: auto; }
+.pf-phones--sm img { flex-basis: 161px; width: 161px; }
+
+/* ---------- Outcome: 2 điện thoại bị cắt ở đáy ---------- */
+.pf-outcome-phones {
+  flex: 1; min-width: 0; align-self: stretch;
+  display: flex; justify-content: center; align-items: flex-start; gap: 24px;
+  height: 250px; margin-right: var(--spacing-section-gap); overflow: hidden;
+}
+.pf-outcome-phones img { flex: 0 1 256px; min-width: 0; width: 256px; height: auto; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1100px) {
+  .pf-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pf-outcome-phones { margin-right: 40px; }
+}
+
+@media (max-width: 900px) {
+  .pf-personas { grid-template-columns: 1fr; }
+  .pf-persona { min-height: 0; }
+}
+
+@media (max-width: 768px) {
+  /* Design: 2 cột — Permi, Home, Trust chiếm cả hàng */
+  .pf-screens { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .pf-screens > .pf-tile--single { grid-column: span 1; }
+  .pf-screens__permi, .pf-screens__half { grid-column: 1 / -1; }
+
+  .pf-outcome-phones { flex: none; height: 220px; margin: 0 24px; gap: 12px; }
+  .pf-outcome-phones img { flex-basis: 140px; width: 140px; }
+}
+
+@media (max-width: 640px) {
+  .pf { --pf-tile-padding: 24px; }
+
+  /* Số liệu: số bên trái, chữ bên phải */
+  .pf-stats { grid-template-columns: 1fr; gap: 12px; }
+  .pf-stat {
+    display: grid; grid-template-columns: 134px minmax(0, 1fr); align-items: center; column-gap: 16px;
+    padding: 20px 24px;
+  }
+  .pf-stat__num { font-size: var(--font-size-display-sm); letter-spacing: var(--letter-spacing-display-sm); }
+  .pf-stat__copy { gap: 4px; }
+
+  .pf-pairs { gap: 16px; }
+  .pf-pairs li { gap: 8px; }
+  .p-row--c .pf-tile--brand, .p-row--c .pf-tile--section { padding: 20px; }
+  .pf-ia { padding: 20px; }
+
+  .pf-phones { gap: 12px; }
+  .pf-tile--single .pf-phones img { flex: none; width: 78%; }
+}
+
