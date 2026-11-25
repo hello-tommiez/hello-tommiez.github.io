@@ -372,3 +372,23 @@
   .pf-tile--single .pf-phones img { flex: none; width: 78%; }
 }
 
+/* =========================================================
+   Paydaes — chỉ dùng cho /portfolio/paydaes
+   Màu ngọc + tím Perfima chỉ áp trong <main class="pd">.
+   ========================================================= */
+.pd {
+  --pd-teal: #0e7f72;
+  --pd-teal-subtle: #e1f7f3;
+  --pd-brand: #7c59f1;
+  --pd-brand-subtle: #fcf3ff;
+
+  /* Badge brand (badge--brand) chuyển sang tím trong trang này */
+  --background-brand-subtle: var(--pd-brand-subtle);
+  --text-brand: #6043d1;
+}
+.pd .p-hero__banner { background: var(--pd-teal-subtle); }
+.pd .p-step--done { border-color: var(--pd-brand); background: var(--pd-brand-subtle); }
+.pd .p-clip { background: var(--pd-teal); }
+.pd .p-tile { background: var(--pd-brand-subtle); }
+.pd .p-tile--teal { background: var(--pd-teal-subtle); }
+.pd .p-outcome { background: var(--pd-brand); }
