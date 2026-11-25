@@ -16,6 +16,86 @@ const SITE = {
   ],
 };
 
+/* ---------- Danh sách project (sửa card ở đây cho MỌI trang) ----------
+   group: "featured" → Featured projects · "more" → More projects
+   Thứ tự trong mảng = thứ tự hiện trên trang.
+   "Next project" ở trang chi tiết tự lấy 2 project đứng sau trang hiện tại. */
+const PROJECTS = [
+  {
+    key: "perfima",
+    group: "featured",
+    title: "Perfima",
+    eyebrow: "Fintech · AI",
+    desc: "Personal finance management powered by AI.",
+    cover: "/assets/img/projects/perfima/perfima-cover.webp",
+    alt: "Perfima app cover",
+    href: "/portfolio/perfima",
+  },
+  {
+    key: "paydaes",
+    group: "more",
+    title: "Paydaes - HRMS+ Web App",
+    eyebrow: "HRTech · Paydaes",
+    desc: "All-in-one HR platform: payroll, leave, attendance and claims.",
+    cover: "/assets/img/projects/paydaes/paydaes-cover.webp",
+    alt: "Paydaes cover",
+    href: "/portfolio/paydaes",
+  },
+  {
+    key: "qvid",
+    group: "more",
+    title: "QVID - AI Video Generator",
+    eyebrow: "AI · Video · OceanLabs",
+    desc: "AI video generator. I designed its first design system.",
+    cover: "/assets/img/projects/qvid/qvid-cover.webp",
+    alt: "QVID cover",
+    href: "/portfolio/qvid",
+  },
+  {
+    key: "hrm",
+    group: "more",
+    title: "HRM - HR & Project Management Web App",
+    eyebrow: "HRTech · Designveloper",
+    desc: "A suite of modules that helps users manage human resources.",
+    cover: "/assets/img/projects/hrm/hrm-cover.webp",
+    alt: "HRM app cover",
+    href: "https://www.behance.net/gallery/153678965/HRM-HR-Project-Management-Web-App",
+    external: true, // mở tab mới
+  },
+];
+
+function projectCard(p, variant) {
+  const target = p.external ? ' target="_blank" rel="noopener"' : "";
+  return `
+  <article class="card ${variant}">
+    <div class="card__media"><img src="${p.cover}" alt="${p.alt}" loading="lazy"></div>
+    <div class="card__body">
+      <p class="card__eyebrow">${p.eyebrow}</p>
+      <h3 class="card__title"><a class="card__link" href="${p.href}"${target}>${p.title}</a></h3>
+      <p class="card__desc">${p.desc}</p>
+    </div>
+  </article>`;
+}
+
+function renderProjects() {
+  // Trang Portfolio: <div class="project-grid" data-projects="featured|more">
+  document.querySelectorAll("[data-projects]").forEach((slot) => {
+    const group = slot.dataset.projects;
+    const variant = group === "featured" ? "card--elevated" : "card--outline";
+    slot.innerHTML = PROJECTS.filter((p) => p.group === group)
+      .map((p) => projectCard(p, variant))
+      .join("");
+  });
+
+  // Trang chi tiết: <body data-project="qvid"> + <div class="next-project__cards" data-next-projects>
+  const next = document.querySelector("[data-next-projects]");
+  if (next) {
+    const i = PROJECTS.findIndex((p) => p.key === document.body.dataset.project);
+    const picks = [1, 2].map((n) => PROJECTS[(i + n + PROJECTS.length) % PROJECTS.length]);
+    next.innerHTML = picks.map((p) => projectCard(p, "card--elevated card--horizontal")).join("");
+  }
+}
+
 /* ---------- Header ---------- */
 function renderHeader() {
   const slot = document.getElementById("site-header");
