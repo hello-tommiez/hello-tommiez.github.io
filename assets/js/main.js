@@ -308,4 +308,5 @@ async function initGallery() {
 }
 renderHeader();
 renderFooter();
+renderProjects();
 initGallery();
