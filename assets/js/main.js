@@ -46,7 +46,7 @@ const PROJECTS = [
     group: "more",
     title: "QVID - AI Video Generator",
     eyebrow: "AI · VIDEO · OCEANLABS",
-    desc: "An AI platform for creating and editing videos, built on one idea: “No skill, no problem."",
+    desc: "An AI platform for creating and editing videos, built on one idea: “No skill, no problem.”",
     cover: "/assets/img/projects/qvid/qvid-cover.webp",
     alt: "QVID cover",
     href: "/portfolio/qvid",
