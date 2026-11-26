@@ -392,3 +392,11 @@
 .pd .p-tile { background: var(--pd-brand-subtle); }
 .pd .p-tile--teal { background: var(--pd-teal-subtle); }
 .pd .p-outcome { background: var(--pd-brand); }
+
+/* Paydaes: khung cố định theo tỉ lệ QVID, laptop tràn mép phải + dưới */
+.pd .p-shot { overflow: hidden; }
+.pd .p-shot img { width: 150%; max-width: none; }
+.pd .p-row--a .p-shot { aspect-ratio: 3040 / 1792; }
+.pd .p-row--b .p-shot { aspect-ratio: 1428 / 992; }
+.pd .p-row--c .p-shot { aspect-ratio: 2240 / 1232; }
+.pd .p-phone { overflow: hidden; aspect-ratio: 1120 / 1792; }
