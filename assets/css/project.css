@@ -400,3 +400,9 @@
 .pd .p-row--b .p-shot { aspect-ratio: 1428 / 992; }
 .pd .p-row--c .p-shot { aspect-ratio: 2240 / 1232; }
 .pd .p-phone { overflow: hidden; aspect-ratio: 1120 / 1792; }
+
+/* Hero Paydaes: khung theo tỉ lệ QVID, co theo chiều rộng, cắt chân đế */
+.pd .p-hero__banner picture { overflow: hidden; aspect-ratio: 4416 / 1856; }
+@media (max-width: 640px) {
+  .pd .p-hero__banner picture { aspect-ratio: 1120 / 1792; }
+}
