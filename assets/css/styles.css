@@ -416,10 +416,27 @@ button.tag:hover { background: #dcdcdc; }
   border-radius: var(--radius-control); object-fit: cover;
 }
 .project-link__text {
-  flex: 1; min-width: 0; max-height: 72px; padding: 16px;
+  flex: 1; min-width: 0; padding: 8px 16px;
   display: flex; flex-direction: column; justify-content: center;
   line-height: 1.5;
 }
-.project-link__eyebrow, .project-link__title { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.project-link__eyebrow { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.project-link__title {
+  overflow: hidden;
+  display: -webkit-box; -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; line-clamp: 2;
+}
 .project-link__eyebrow { font-size: var(--font-size-body-sm); color: var(--text-hint); }
 .project-link__title { font-size: var(--font-size-body-md); font-weight: var(--font-weight-emphasis); color: var(--text-default); }
+/* ---------- 9. Giới hạn số dòng của card ---------- */
+/* Tag + title: 1 dòng (card main + next project) */
+.card__eyebrow,
+.card__title { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+/* Description: 2 dòng (card main) */
+.card__desc {
+  overflow: hidden;
+  display: -webkit-box; -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; line-clamp: 2;
+}
+/* Description: 1 dòng (card next project) */
+.card--horizontal .card__desc { -webkit-line-clamp: 1; line-clamp: 1; }
