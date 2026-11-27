@@ -395,3 +395,31 @@ button.tag:hover { background: #dcdcdc; }
   .masonry { columns: 2; column-gap: 12px; }
   .graphic-tile { margin-bottom: 12px; }
 }
+
+/* ---------- 8. About: quick link dự án + nút chứng chỉ ---------- */
+.btn--sm { height: 32px; padding: 0 12px; font-size: var(--font-size-body-sm); }
+.btn svg { flex: none; }
+.timeline-item__body > .btn,
+.timeline-item__body > .project-link { align-self: flex-start; }
+
+/* Project Link — thumbnail 128×72 + eyebrow + tên dự án */
+.project-link {
+  display: flex; align-items: center;
+  width: 480px; max-width: 100%; padding: 4px;
+  border-radius: var(--radius-card);
+  background: var(--background-section);
+  transition: background-color .15s;
+}
+.project-link:hover { background: var(--background-neutral); }
+.project-link__thumb {
+  flex: 0 0 128px; width: 128px; height: 72px;
+  border-radius: var(--radius-control); object-fit: cover;
+}
+.project-link__text {
+  flex: 1; min-width: 0; max-height: 72px; padding: 16px;
+  display: flex; flex-direction: column; justify-content: center;
+  line-height: 1.5;
+}
+.project-link__eyebrow, .project-link__title { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.project-link__eyebrow { font-size: var(--font-size-body-sm); color: var(--text-hint); }
+.project-link__title { font-size: var(--font-size-body-md); font-weight: var(--font-weight-emphasis); color: var(--text-default); }
