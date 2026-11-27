@@ -32,6 +32,16 @@ const PROJECTS = [
     href: "/portfolio/perfima",
   },
   {
+    key: "kamito-zma",
+    group: "more",
+    title: "Kamito - Zalo Mini App",
+    eyebrow: "E-COMMERCE · ZMA · MIDOMAX",
+    desc: "A sportswear store inside Zalo for Kamito: browse, add to cart and check out without leaving the chat app.",
+    cover: "/assets/img/projects/kamito-zma/kamito-cover.webp",
+    alt: "Kamito cover",
+    href: "/portfolio/kamito-zma",
+  },
+  {
     key: "paydaes",
     group: "more",
     title: "Paydaes - HRMS+ Web App",
