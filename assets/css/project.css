@@ -416,11 +416,12 @@
   --km-red: #e4212b;
   --km-red-subtle: #fff1f1;   /* background/danger */
   --km-red-text: #b71c1c;     /* text/danger, icon/danger */
-  --km-step-border: #7c59f1;  /* viền bước 04 theo Figma */
+  --km-step-border: #d92b2b;  /* border/danger — viền bước 04 */
 
-  /* Badge brand (The brief, Challenge, Process): Figma đang để chữ tím trên nền #f8f8f8 */
-  --background-brand-subtle: var(--background-section);
-  --text-brand: #6043d1;
+  /* Badge brand (The brief, Challenge, Process) → badge đỏ */
+  --background-brand-subtle: var(--km-red-subtle);
+  --text-brand: var(--km-red-text);
+}
 }
 .km > .container { gap: 64px; }
 
@@ -436,7 +437,7 @@
 .km-hero-phones > div { flex: 0 1 240px; min-width: 0; aspect-ratio: 240 / 464; overflow: hidden; }
 
 /* ---------- How it works / Brief & Challenge ---------- */
-.km .p-step--done { border-color: var(--km-step-border); background: var(--background-section); }
+.km .p-step--done { border-color: var(--km-step-border); background: var(--km-red-subtle); }
 .km .p-challenge { justify-content: space-between; }
 .km .p-clip { background: var(--km-red); }
 
