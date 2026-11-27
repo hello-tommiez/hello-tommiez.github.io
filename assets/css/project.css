@@ -161,7 +161,7 @@
 /* Card ngang: ảnh 160px bên trái */
 .card--horizontal { flex-direction: row; min-height: 120px; }
 .card--horizontal .card__media { flex: 0 0 160px; height: auto; }
-.card--horizontal .card__body { flex: 1; min-width: 0; }
+.card--horizontal .card__body { flex: 1; min-width: 0; justify-content: center; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1100px) {
