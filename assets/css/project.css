@@ -406,3 +406,88 @@
 @media (max-width: 640px) {
   .pd .p-hero__banner picture { aspect-ratio: 1120 / 1792; }
 }
+
+/* =========================================================
+   Kamito — chỉ dùng cho /portfolio/kamito
+   Layout theo Figma "Portfolio · Kamito - ZMA" (node 432:3282).
+   Màu đỏ Kamito chỉ áp trong <main class="km">.
+   ========================================================= */
+.km {
+  --km-red: #e4212b;
+  --km-red-subtle: #fff1f1;   /* background/danger */
+  --km-red-text: #b71c1c;     /* text/danger, icon/danger */
+  --km-step-border: #7c59f1;  /* viền bước 04 theo Figma */
+
+  /* Badge brand (The brief, Challenge, Process): Figma đang để chữ tím trên nền #f8f8f8 */
+  --background-brand-subtle: var(--background-section);
+  --text-brand: #6043d1;
+}
+.km > .container { gap: 64px; }
+
+/* Badge đỏ (hero + dấu ✓ giữa các clip) */
+.km .km-badge--danger { background: var(--km-red-subtle); color: var(--km-red-text); }
+
+/* Ảnh điện thoại export từ Figma (đã gồm khung máy) */
+.km-phone { display: block; width: 100%; height: auto; }
+
+/* ---------- Hero: 4 điện thoại, bị cắt ở đáy ---------- */
+.km .p-hero__banner { background: var(--km-red-subtle); }
+.km-hero-phones { display: flex; justify-content: center; gap: 48px; }
+.km-hero-phones > div { flex: 0 1 240px; min-width: 0; aspect-ratio: 240 / 464; overflow: hidden; }
+
+/* ---------- How it works / Brief & Challenge ---------- */
+.km .p-step--done { border-color: var(--km-step-border); background: var(--background-section); }
+.km .p-challenge { justify-content: space-between; }
+.km .p-clip { background: var(--km-red); }
+
+/* ---------- Process: lưới tile ----------
+   Desktop 12 cột: Home & Search 8 + Product 4 / Categories, Filters, Empty 4-4-4 / Cart, Checkout 6-6
+   Mobile 2 cột: Home full / Product, Categories / Filters, Empty / Cart full / Checkout full */
+.km-tiles { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 32px 16px; }
+.km-tile {
+  grid-column: span 4;
+  margin: 0;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 16px;
+  padding: 32px; overflow: hidden;
+  border-radius: var(--radius-sheet);
+  background: var(--km-red-subtle);
+}
+.km-tile--8 { grid-column: span 8; }
+.km-tile--6 { grid-column: span 6; }
+.km-phones { display: flex; justify-content: center; align-items: flex-start; gap: 16px; width: 100%; }
+.km-phones .km-phone { flex: 0 1 230px; min-width: 0; width: 230px; }
+
+/* ---------- Outcome: 2 điện thoại bị cắt ở đáy ---------- */
+.km .p-outcome { background: var(--km-red); }
+.km-outcome-phones {
+  flex: 1; min-width: 0; height: 360px; overflow: hidden;
+  display: flex; justify-content: center; align-items: flex-start; gap: 16px;
+}
+.km-outcome-phones .km-phone { flex: 0 1 230px; min-width: 0; width: 230px; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .km-desktop { display: none; }
+
+  /* Hero: 1 điện thoại 280px */
+  .km-hero-phones > div { flex-basis: 280px; aspect-ratio: 280 / 488; }
+
+  /* Process: 2 cột, điện thoại = bề ngang của tile nửa */
+  .km {
+    --km-phone-w: calc((100vw - 2 * var(--page-margin) - 16px) / 2 - 48px);
+  }
+  .km-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .km-tile { grid-column: span 1; padding: 24px; }
+  .km-tile--8, .km-tile--6 { grid-column: 1 / -1; }
+  .km-phones .km-phone { flex-basis: var(--km-phone-w); width: var(--km-phone-w); }
+
+  /* Outcome: 1 điện thoại 211px, cắt còn 275px */
+  .km-outcome-phones { flex: none; height: 275px; margin: 0 24px; }
+  .km-outcome-phones .km-phone { flex-basis: 211px; width: 211px; }
+}
+
+@media (max-width: 640px) {
+  .km .p-hero__title .body-xl { font-size: var(--font-size-body-lg); }
+  .km .p-challenge .display-lg { font-size: 48px; letter-spacing: -1px; }
+  .km .p-clip { padding-left: 16px; padding-right: 16px; }
+}
